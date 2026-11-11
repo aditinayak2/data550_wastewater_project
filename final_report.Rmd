@@ -1,0 +1,74 @@
+---
+title: "Wastewater Project"
+author: "Aditi Nayak. Stephanie Sanchez, Shynitha Pulluri, Kashvi Sarup, La’el Williams, Elizabeth Jackson"
+date: "2026-09-26"
+output: html_document
+---
+
+
+
+## Introduction 
+
+Wastewater based epidemiology(WBE) has reemerged as a public health surveillance tool for tracking infectious diseases at the community level through the analysis of sewage. Increased interest occurred during the COVID-19 (SARS-COV-2) pandemic, with the Centers for Disease Control and Prevention (CDC) establishing the National Wastewater Surveillance System (NWSS) partnering with major projects like WastewaterSCAN. 
+
+This report utilizes the CDC Wastewater Viral Activity Level (WVAL), which records weekly surveillance measurements across U.S wastewater treatment faculties for respiratory pathogens such Respiratory syncytial virus (RSV).  
+
+
+## Objectives
+1. Load the wastewater surveillance dataset 
+
+2. Construct summary tables evaluating categorical viral activity 
+
+3. Visualize the viral activity levels over time to identify seasonal trends 
+
+
+## References
+
+https://www.cdc.gov/wastewater/about-data/index.html
+
+https://pmc-ncbi-nlm-nih-gov.proxy.library.emory.edu/articles/PMC11312382/
+
+https://www.nature.com/articles/s41370-024-00683-w#citeas
+
+
+
+## Clean data
+
+### Variables of interest:
+
+**record_id**: A unique identifier for each row of data.
+
+**sample_collect_date**: Sample collection date YYYY-MM-DD
+
+**site**: A unique identifier for wastewater treatment plants.
+
+**state_territory**: Set to GA, state in which the wastewater treatment plant is located
+
+**source**: The source of the data submitted to NWSS (e.g, State_Territory, WastewaterSCAN, CDC_Verily, & CDC_Biobot).
+
+**counties_served**: The county and county-equivalent names corresponding to the FIPS codes in 'county_fips'
+
+**population_served**: Estimated number of persons served by this sampling site (i.e., served by this wastewater treatment plant or, if 'sample_location' is "upstream", then by this upstream location).
+
+**pcr_target**: The target of the PCR quantification (pathogen or antimicrobial resistance (AMR) groups).
+
+**sample_location**: Sample collection location in the wastewater system, whether at a wastewater treatment plant  or upstream in the wastewater system.
+
+**pcr_target_detect**: The target of the PCR quantification (pathogen or antimicrobial resistance (AMR) groups).
+
+**sample_matrix**: Wastewater matrix from which the sample was collected. Wastewater matrix is a categorical variable specifying the type of wastewater sample used (e.g., raw influent, primary sludge, settled solids).
+
+
+
+## Analysis Table
+
+
+
+## Visualizing Analysis
+
+
+
+
+## Map
+
+

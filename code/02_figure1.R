@@ -1,11 +1,13 @@
 library(dplyr)
 library(ggplot2)
-library(sf)
-library(tigris)
 library(tidyr)
 library(lubridate)
+library(sf)
 
 wastewater <- readRDS("data/clean/wastewater_clean.rds")
+ga_counties <- st_as_sf(
+  readRDS("data/clean/ga_counties_2025.rds")
+)
 
 if (!exists("map_months")) {
   map_months <- 6
@@ -22,24 +24,6 @@ wastewater_2026 <- wastewater |>
     sample_collect_date >= latest_date %m-% months(map_months),
     sample_collect_date <= latest_date
   )
-
-wastewater_2026 |>
-  group_by(counties_served) |>
-  summarise(
-    n_samples = sum(!is.na(wval)),
-    mean_wval = mean(wval, na.rm = TRUE)
-  )
-
-ga_counties <- counties(
-  state = "GA",
-  cb = TRUE,
-  year = 2025
-)
-  
-ggplot(ga_counties) +
-  geom_sf(fill = "lightblue", color = "white") +
-  theme_void() +
-  labs(title = "Georgia Counties")
 
 county_wval <- wastewater_2026 |>
   separate_rows(counties_served, sep = ",\\s*") |>

@@ -88,14 +88,14 @@ table_one
 Across 10,429 SARS-CoV-2 wastewater surveillance observations in Georgia, the median wastewater viral activity level was 2.6 (IQR: 1.1–5.6). Most observations were classified as having very low or low viral activity, 37% and 22% of observations, respectively, while 16% were classified as very high. SARS-CoV-2 was detected in 95% of observations. The most common sample matrix was raw wastewater (48%), followed by post-grit removal samples (41%), and primary sludge (11%).
 
 ## Visualizing Analysis
-
+## Figure 1: Average SARS-CoV-2 Wastewater Viral Activity by County in Georgia
 ```{r figure-one, echo=FALSE, message=FALSE, warning=FALSE, out.width="100%"}
 map_months <- params$map_months
 source("code/02_figure1.R")
 knitr::include_graphics("output/figure_one.png")
 ```
 
-## Figure 1: Average SARS-CoV-2 Wastewater Viral Activity by County in Georgia
+## Figure 1 Description
 This map illustrates the geographic distribution of average SARS-CoV-2 wastewater viral activity levels (WVAL) across Georgia counties using the most recent `r params$map_months` months of available surveillance data. Darker shades of red indicate higher average viral activity, while lighter shades indicate lower activity. Counties without available wastewater surveillance data are shown in gray.
 
 ### Figure 2: Wastewater Viral Activity Over Time

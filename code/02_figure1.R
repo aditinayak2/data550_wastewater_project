@@ -3,14 +3,24 @@ library(ggplot2)
 library(sf)
 library(tigris)
 library(tidyr)
+library(lubridate)
 
 wastewater <- readRDS("data/clean/wastewater_clean.rds")
+
+if (!exists("map_months")) {
+  map_months <- 6
+}
+
+latest_date <- max(
+  as.Date(wastewater$sample_collect_date),
+  na.rm = TRUE
+)
 
 wastewater_2026 <- wastewater |>
   mutate(sample_collect_date = as.Date(sample_collect_date)) |>
   filter(
-    sample_collect_date >= as.Date("2026-01-01"),
-    sample_collect_date <= as.Date("2026-11-09")
+    sample_collect_date >= latest_date %m-% months(map_months),
+    sample_collect_date <= latest_date
   )
 
 wastewater_2026 |>
@@ -56,7 +66,11 @@ county_map_plot <- ggplot(ga_map) +
   ) +
   labs(
     title = "COVID-19 Wastewater Viral Activity Across Georgia Counties",
-    subtitle = "Average wastewater viral activity level, January-November 2026",
+    subtitle = paste(
+      "Average wastewater viral activity level over the most recent",
+      map_months,
+      "months"
+    ),    
     caption = "Counties without available measurements are shown in gray."
   ) +
   theme_void()

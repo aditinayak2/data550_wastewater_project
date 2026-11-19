@@ -1,7 +1,7 @@
 MAP_MONTHS ?= 6
 export MAP_MONTHS
 
-.PHONY: all clean 
+.PHONY: all clean report 
 all: final_report.html
 
 clean:

@@ -42,7 +42,9 @@ figure_two <- ggplot(data_monthly,
 ggsave(
   here::here("output/figure_two.png"),
   plot = figure_two,
-  device = "png"
+  device = "png",
+  width = 12,
+  height = 6
 )
 
 
